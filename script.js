@@ -17,11 +17,11 @@ function createGrid(number) {
     square.style.width = `${((400 - (2 * number)) / number)}px`;
     square.style.height = `${((400 - (2 * number)) / number)}px`;
   }
-  setSqrBg(nbrOfSquare); // sets the background color of squares
+  setSqrBg(); // sets the background color of squares
 }
 
 //function for settinf background color
-function setSqrBg(number) {
+function setSqrBg() {
   let squares = document.querySelectorAll('.square');
   squares = Array.from(squares);
   squares.forEach(square => {
@@ -40,13 +40,11 @@ function randomNumber(number) {
 
 // for creating new grid when reset button is clicked
 function newGrid() {
-
   document.querySelector('.container').innerHTML = ''; // clears the old grid
-
   let newNumber = prompt('how many sqrs ', 5); // ask user for number*number of squars
   if (newNumber <= 100) {
     createGrid(newNumber);
-    setSqrBg(newNumber);
+    setSqrBg();
     btn.addEventListener('click', newGrid); // it is for resetting the container and adding new grid agian and again
   }
   else {
